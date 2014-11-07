@@ -11,7 +11,7 @@
   {:status 200
     :headers {"Content-Type" "text/plain"}
     :body (pr-str ["Hello" :from 'Keppy
-                   "it took: " (cs/time-operation) " to filter out duplicate emails from a list of 100,000, with 50% duplicates."])})
+                   "it took: " (time (cs/make-ordered-set cs/emails)) " to filter out duplicate emails from a list of 100,000, with 50% duplicates."])})
 
 (defroutes app
   (GET "/" []
