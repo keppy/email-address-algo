@@ -12,7 +12,7 @@
   {:status 200
     :headers {"Content-Type" "text/plain"}
     :body (pr-str ["Hello" :from 'Keppy
-                   "it took: " (crit/bench (cs/ordered-emails cs/emails)) " to filter out duplicate emails from a list of 100,000, with roughly 50% duplicates."])})
+                   "these addresses were filterd from a list of 100,000 email addresses with at least 50% duplicates (in under a second!): " (cs/ordered-emails cs/emails) ])})
 
 (defroutes app
   (GET "/" []
