@@ -5,13 +5,14 @@
             [clojure.java.io :as io]
             [ring.adapter.jetty :as jetty]
             [environ.core :refer [env]]
-            [chefsteps.core :as cs]))
+            [chefsteps.core :as cs]
+            [criterium.core :as crit))
 
 (defn splash []
   {:status 200
     :headers {"Content-Type" "text/plain"}
     :body (pr-str ["Hello" :from 'Keppy
-                   "it took: " (print (eval cs/time-operation)) " to filter out duplicate emails from a list of 100,000, with roughly 50% duplicates."])})
+                   "it took: " (crit/bench (cs/ordered-emails cs/emails)) " to filter out duplicate emails from a list of 100,000, with roughly 50% duplicates."])})
 
 (defroutes app
   (GET "/" []
