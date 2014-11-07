@@ -4,12 +4,14 @@
             [compojure.route :as route]
             [clojure.java.io :as io]
             [ring.adapter.jetty :as jetty]
-            [environ.core :refer [env]]))
+            [environ.core :refer [env]]
+            [chefsteps.core :as cs]))
 
 (defn splash []
   {:status 200
     :headers {"Content-Type" "text/plain"}
-    :body (pr-str ["Hello" :from 'Heroku])})
+    :body (pr-str ["Hello" :from 'Keppy
+                   "it took: " (cs/time-operation) " to filter out duplicate emails from a list of 100,000, with 50% duplicates."])})
 
 (defroutes app
   (GET "/" []
