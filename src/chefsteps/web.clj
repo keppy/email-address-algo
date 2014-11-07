@@ -6,7 +6,7 @@
             [ring.adapter.jetty :as jetty]
             [environ.core :refer [env]]
             [chefsteps.core :as cs]
-            [criterium.core :as crit))
+            [criterium.core :as crit]))
 
 (defn splash []
   {:status 200
