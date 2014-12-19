@@ -26,7 +26,7 @@
 
 (defroutes app
   (GET "/" []
-    (page)))
+    page))
 
 (defn -main [& [port]]
   (let [port (Integer. (or port (env :port) 5000))]
