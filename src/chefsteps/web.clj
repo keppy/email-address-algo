@@ -7,12 +7,19 @@
             [environ.core :refer [env]]
             [chefsteps.core :as cs]
             [criterium.core :as crit]
-            [hiccup.page :as hiccup-page]))
+            [hiccup.page :as hiccup-page]
+            [faker.internet :as fake]))
+
+(def first-emails (take 50000 (fake/emails)))
+
+(def emails (let [s1 first-emails
+                  s2 first-emails]
+              (concat s1 s2)))
 
 (def sorted-emails
   (cs/make-sorted-set
     (seq
-      (cs/ordered-emails cs/emails))))
+      (cs/ordered-emails emails))))
 
 (def page
   (hiccup-page/html5
