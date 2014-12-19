@@ -15,20 +15,18 @@
       (cs/ordered-emails cs/emails))))
 
 (def page
-  (hiccup/html
-    [:h1 "This list of 100,000 email addresses was randomly generated and sorted in place in under 1 second:"]
-    [:ul
-     (for [x sorted-emails]
-       [:li x])]))
-
-(defn splash []
-  {:status 200
-    :headers {"Content-Type" "text/plain"}
-    :body page})
+  (hiccup/page/html5
+    [:head
+     [:title "ordered, sorted emails."]]
+    [:body
+      [:h1 "This list of 100,000 email addresses was randomly generated and sorted in place in under 1 second:"]
+      [:ul
+       (for [x sorted-emails]
+         [:li x])]]))
 
 (defroutes app
   (GET "/" []
-    (splash)))
+    (page)))
 
 (defn -main [& [port]]
   (let [port (Integer. (or port (env :port) 5000))]
