@@ -11,7 +11,8 @@
 
 (def sorted-emails
   (cs/make-sorted-set
-    (cs/order-emails cs/emails)))
+    (seq
+      (cs/ordered-emails cs/emails))))
 
 (def page
   (hiccup/html
