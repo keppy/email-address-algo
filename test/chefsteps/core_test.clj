@@ -31,7 +31,7 @@
 (def test-numbers
   [1 6 9 3 4 5 5 6 0])
 
-(def expeted-numbers-output
+(def expected-numbers-output
   #{0 1 3 4 5 6 9})
 
 (deftest sort-test-numbers
@@ -39,4 +39,4 @@
     (let [ordered-numbers
       (cs/make-sorted-set
         (seq (cs/ordered-emails test-numbers)))]
-      (is (ordered-numbers expected-numbers-output)))))
+      (is (= ordered-numbers expected-numbers-output)))))
