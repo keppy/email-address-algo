@@ -1,14 +1,11 @@
-(ns chefsteps.core
-  (:require [faker.internet :as fake]))
+(ns chefsteps.core)
 
-(def first-emails (take 50000 (fake/emails)))
-
-(def emails (let [s1 first-emails
-                  s2 first-emails]
-              (concat s1 s2)))
+;; The OrderedSet data type ensures the order will be the same
+;; as the element order of the input data. This is then followed up later
+;; with another transformation that turns the ordered set into a sorted set.
+;; Both of these states are potentially useful.
 
 (deftype OrderedSet [v m s]
-  "This type retains order of items and also ensures uniqueness"
   clojure.lang.IObj
     (withMeta [this md] (OrderedSet. v (with-meta m md) s))
     (meta [this] (meta m))
@@ -52,8 +49,3 @@
   "Use apply to order the seq of elements"
   [a]
   (apply make-ordered-set a))
-
-(defn time-operation
-  "how long does it take to do this operation?"
-  []
-  (time (ordered-emails emails)))
