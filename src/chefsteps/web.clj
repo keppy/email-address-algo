@@ -15,11 +15,6 @@
 (def emails (let [s1 first-emails
                   s2 first-emails]
               (concat s1 s2)))
-(def timer
-  (time
-    (cs/make-sorted-set
-      (seq
-        (cs/ordered-emails emails)))))
 
 (def sorted-emails
   (cs/make-sorted-set
@@ -31,7 +26,7 @@
     [:head
      [:title "ordered, sorted emails."]]
     [:body
-      [:h1 (str "This list of 100,000 email addresses was randomly generated and sorted in place in under " timer ":")]
+      [:h1 (str "This list of 100,000 email addresses was randomly generated and sorted in place in well under a second:")]
       [:ul
        (for [x sorted-emails]
          [:li x])]]))
