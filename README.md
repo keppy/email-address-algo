@@ -5,6 +5,12 @@ This is a fast implementation on hundreds of thousands of records in memory it p
 There is a live web view available here:
 https://aqueous-chamber-2808.herokuapp.com/
 
+To run the tests you must have lein installed (https://github.com/technomancy/leiningen#installation)
+
+Run the tests:
+
+    lein test
+
 
 ## License
 
