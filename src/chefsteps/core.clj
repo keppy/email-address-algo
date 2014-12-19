@@ -8,6 +8,7 @@
               (concat s1 s2)))
 
 (deftype OrderedSet [v m s]
+  "This type retains order of items and also ensures uniqueness"
   clojure.lang.IObj
     (withMeta [this md] (OrderedSet. v (with-meta m md) s))
     (meta [this] (meta m))
@@ -40,14 +41,15 @@
         (get this object not-found)))
 
 (defn make-ordered-set [& elements]
+  "Reduction for conjing elements into the set"
   (reduce conj (OrderedSet. [] {} (Object.)) elements))
 
 (defn make-sorted-set [elements]
   "Use a PersistentTreeSet to sort the elements."
   (clojure.lang.PersistentTreeSet/create elements))
 
-(defn ordered-emails
-  "Use apply to order the elements"
+(defn seq-to-ordered-set
+  "Use apply to order the seq of elements"
   [a]
   (apply make-ordered-set a))
 

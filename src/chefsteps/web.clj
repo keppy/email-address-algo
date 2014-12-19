@@ -19,7 +19,7 @@
 (def sorted-emails
   (cs/make-sorted-set
     (seq
-      (cs/ordered-emails emails))))
+      (cs/seq-to-ordered-set emails))))
 
 (def page
   (hiccup-page/html5

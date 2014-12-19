@@ -24,7 +24,8 @@
   (testing "That the test emails are reordered correctly"
     (let[ordered-emails
          (cs/make-sorted-set 
-           (seq (cs/ordered-emails test-emails)))]
+           (seq 
+             (cs/seq-to-ordered-set test-emails)))]
       (is (= ordered-emails expected-emails-output)))))
 
 ;; Test the full ordered->sorted set flow using numbers:
@@ -38,5 +39,6 @@
   (testing "That the numbers are ordered & sorted."
     (let [ordered-numbers
       (cs/make-sorted-set
-        (seq (cs/ordered-emails test-numbers)))]
+        (seq 
+          (cs/seq-to-ordered-set test-numbers)))]
       (is (= ordered-numbers expected-numbers-output)))))
