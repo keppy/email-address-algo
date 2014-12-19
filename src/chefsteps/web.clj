@@ -15,7 +15,7 @@
       (cs/ordered-emails cs/emails))))
 
 (def page
-  (hiccup/page/html5
+  (hiccup.page/html5
     [:head
      [:title "ordered, sorted emails."]]
     [:body
