@@ -7,7 +7,7 @@
             [environ.core :refer [env]]
             [chefsteps.core :as cs]
             [criterium.core :as crit]
-            [hiccup :as hiccup]))
+            [hiccup.page :as hiccup-page]))
 
 (def sorted-emails
   (cs/make-sorted-set
@@ -15,7 +15,7 @@
       (cs/ordered-emails cs/emails))))
 
 (def page
-  (hiccup.page/html5
+  (hiccup-page/html5
     [:head
      [:title "ordered, sorted emails."]]
     [:body
