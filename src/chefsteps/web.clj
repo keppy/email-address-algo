@@ -31,7 +31,7 @@
     [:head
      [:title "ordered, sorted emails."]]
     [:body
-      [:h1 (str "This list of 100,000 email addresses was randomly generated and sorted in place in under:" timer)]
+      [:h1 (str "This list of 100,000 email addresses was randomly generated and sorted in place in under " timer ":")]
       [:ul
        (for [x sorted-emails]
          [:li x])]]))
