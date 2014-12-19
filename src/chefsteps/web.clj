@@ -7,7 +7,7 @@
             [environ.core :refer [env]]
             [chefsteps.core :as cs]
             [criterium.core :as crit]
-            [hiccup.core :as hiccup]))
+            [hiccup :as hiccup]))
 
 (def sorted-emails
   (cs/make-sorted-set
