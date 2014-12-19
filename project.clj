@@ -8,9 +8,9 @@
                  [compojure "1.2.1"]
                  [ring/ring-jetty-adapter "1.3.1"]
                  [environ "1.0.0"]
-                 [criterium "0.4.3"]]
+                 [criterium "0.4.3"]
+                 [hiccup "1.0.5"]]
   :min-lein-version "2.0.0"
   :plugins [[lein-environ "1.0.0"]]
-  :hooks [environ.leiningen.hooks]
   :uberjar-name "chefsteps.jar"
   :profiles {:production {:env {:production true}}})

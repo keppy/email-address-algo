@@ -42,8 +42,12 @@
 (defn make-ordered-set [& elements]
   (reduce conj (OrderedSet. [] {} (Object.)) elements))
 
+(defn make-sorted-set [elements]
+  "Use a PersistentTreeSet to sort the elements."
+  (clojure.lang.PersistentTreeSet/create elements))
+
 (defn ordered-emails
-  "Use apply to order the emails"
+  "Use apply to order the elements"
   [a]
   (apply make-ordered-set a))
 
