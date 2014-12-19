@@ -2,7 +2,7 @@ This library is a showcase of sorting & ordering. We implement an ordered set in
 
 This is a fast implementation on hundreds of thousands of records in memory it performs both steps in under a second.
 
-There is a web view available here:
+There is a live web view available here:
 https://aqueous-chamber-2808.herokuapp.com/
 
 
